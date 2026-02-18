@@ -1,6 +1,9 @@
 
 import { test, expect } from '@playwright/test';
 
+// AAA - Arrange, Act, Assert 
+// Ou: PAV Preparar, Agir Validar
+
 test('Deve consultar um pedido aprovado', async ({ page }) => {
   // 1. Acessar a Home
   await page.goto('http://localhost:5173/');
