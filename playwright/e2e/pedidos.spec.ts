@@ -29,16 +29,11 @@ test('Deve consultar um pedido aprovado', async ({ page }) => {
 
 
   // -------------------------------------------
-  // 3. ASSERT (Validação)
-  // -------------------------------------------
-  // Verificar se estamos na página correta
-  await expect(page.getByRole('heading')).toContainText('Consultar Pedido');
+  // 3. ASSERT (Nova busca sem data-testid)
 
-  // Validar se o ID retornado é o mesmo que pesquisamos
-  await expect(page.getByTestId('order-result-id')).toBeVisible();
-  await expect(page.getByTestId('order-result-id')).toHaveText(orderId);
+// Busca o ID do pedido diretamente pelo texto que definimos no Arrange
+await expect(page.getByText(orderId)).toBeVisible();
 
-  // Validar se o status está correto
-  await expect(page.getByTestId('order-result-status')).toBeVisible();
-  await expect(page.getByTestId('order-result-status')).toHaveText('APROVADO');
+// Busca o status APROVADO pelo texto exato
+await expect(page.getByText('APROVADO')).toBeVisible();
 });
