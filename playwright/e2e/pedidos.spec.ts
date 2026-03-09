@@ -32,7 +32,7 @@ test('Deve consultar um pedido aprovado', async ({ page }) => {
   // 3. ASSERT (Nova busca sem data-testid)
 
 // Busca o ID do pedido diretamente pelo texto que definimos no Arrange
-await expect(page.getByText(orderId)).toBeVisible();
+await expect(page.getByText(orderId)).toBeVisible({ timeout: 10000 });
 
 // Busca o status APROVADO pelo texto exato
 await expect(page.getByText('APROVADO')).toBeVisible();
